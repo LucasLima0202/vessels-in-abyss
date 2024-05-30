@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     background: url(../img/fundo.png);
     background-position: center center;
@@ -31,32 +32,26 @@ main {
     gap: 2vw;
 }
 
-/* .vessels {
-    background: url(../img/estrutura.png) no-repeat center center;
-    background-size: ;
-    flex: 1 1 10%;
-    position: relative;
-} */
+.vessels {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-flow: column;
+   flex: 1 1 10%;
+}
 
 .vessel {
     width: 15em;
     height: auto;
-    position: absolute;
-    top: 0;
-    left: 10%;
     transform: translate(-10%, -5%);
 }
 
 .titulo {
-    transform: rotate(180deg);
+    text-align: center;
     font-weight: 500;
     font-size: 5vw;
-    position: relative;
-    bottom: -8rem;
-    left: -3rem;
     line-height: 0.8;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
+    margin-right: 50px;
     color: rgba(255,255,255,0.8);
 }
 
@@ -145,7 +140,9 @@ main {
 }
 
 .controle-ajuste {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
     line-height: 44px;
@@ -166,7 +163,7 @@ main {
     margin-top: 1em;
     font-size: 1.5em;
     text-transform: uppercase;
-    padding: 0.2em 1em;
+    padding: 0.2em 4.6em;
     border: 3px solid var(--main-branco);
     background: var(--main-branco);
     clip-path: polygon(100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 0);
