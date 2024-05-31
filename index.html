@@ -10,36 +10,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;500&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <main>
         <section class="vessels">
-            <img class="vessel" src="img/vessel.png" alt="Vessels">
+            <div>
+            <img class="vessel" src="img/vessel.png" alt="Vessels" onclick="playdm()">
+            <audio id="audio-damage" src="/sound/hit.mp3"></audio>
+            </div>
             <figcaption class="titulo">HOLLOW<br>VESSEL</figcaption>
         </section>
         <section class="box estatisticas">
             <div class="estatistica">
                 <p class="estatistica-titulo">NAIL ATTACK</p>
                 <div class="estatistica-valor">
-                    <p class="estatistica-numero">768</p>
+                    <p class="estatistica-numero" data-est="nail">10</p>
                 </div>
             </div>
             <div class="estatistica">
                 <p class="estatistica-titulo">SPELLS ATTACK</p>
                 <div class="estatistica-valor">
-                    <p class="estatistica-numero">630</p>
+                    <p class="estatistica-numero" data-est="spells">20</p>
                 </div>
             </div>
             <div class="estatistica">
                 <p class="estatistica-titulo">SOUL</p>
                 <div class="estatistica-valor">
-                    <p class="estatistica-numero">289</p>
+                    <p class="estatistica-numero" data-est="soul">100</p>
                 </div>
             </div>
             <div class="estatistica">
                 <p class="estatistica-titulo">SPEED</p>
                 <div class="estatistica-valor">
-                    <p class="estatistica-numero">597</p>
+                    <p class="estatistica-numero" data-est="speed">10</p>
                 </div>
             </div>
         </section>
@@ -47,53 +52,59 @@
             <form action="" class="montador">
                 <div class="box montador-conteudo">
                     <div class="peca">
-                        <label for="" class="peca-titulo">NAIL</label>
+                        <label for="" class="peca-titulo">SHARP NAIL</label>
                         <div class="controle">
-                            <button type="button" class="controle-ajuste">-</button>
-                            <input type="text" class="controle-contador" value="00">
-                            <button type="button" class="controle-ajuste">+</button>
+                            <button type="button" class="controle-ajuste subtrair" data-at="nail" >-</button>
+                            <input type="text" class="controle-contador" value="00" id="nail">
+                            <button type="button" class="controle-ajuste soma" data-at="nail">+</button>
                         </div>
                     </div>
                     <hr class="linha">
                     <div class="peca">
                         <label for="" class="peca-titulo">MASK SHARDS</label>
                         <div class="controle">
-                            <button type="button" class="controle-ajuste">-</button>
-                            <input type="text" class="controle-contador" value="00">
-                            <button type="button" class="controle-ajuste">+</button>
+                            <button type="button" class="controle-ajuste subtrair" data-at="mask">-</button>
+                            <input type="text" class="controle-contador" value="00" id="mask">
+                            <button type="button" class="controle-ajuste soma" data-at="mask">+</button>
                         </div>
                     </div>
                     <hr class="linha">
                     <div class="peca">
-                        <label for="" class="peca-titulo">SOUL</label>
+                        <label for="" class="peca-titulo">SOUL CONTAINER</label>
                         <div class="controle">
-                            <button type="button" class="controle-ajuste">-</button>
-                            <input type="text" class="controle-contador" value="00">
-                            <button type="button" class="controle-ajuste">+</button>
+                            <button type="button" class="controle-ajuste subtrair" data-at="soul">-</button>
+                            <input type="text" class="controle-contador" value="00" id="soul">
+                            <button type="button" class="controle-ajuste soma"data-at="soul" >+</button>
                         </div>
                     </div>
                     <hr class="linha">
                     <div class="peca">
-                        <label for="" class="peca-titulo">SPEED</label>
+                        <label for="" class="peca-titulo">SPEED OF VESSEL</label>
                         <div class="controle">
-                            <button type="button" class="controle-ajuste">-</button>
-                            <input type="text" class="controle-contador" value="00">
-                            <button type="button" class="controle-ajuste">+</button>
+                            <button type="button" class="controle-ajuste subtrair"data-at="speed">-</button>
+                            <input type="text" class="controle-contador" value="00" id="speed">
+                            <button type="button" class="controle-ajuste soma" data-at="speed">+</button>
                         </div>
                     </div>
                     <hr class="linha">
                     <div class="peca spells">
                         <div class="controle2">
-                            <img src="img/s.png" width="100px">
-                            <button type="button" class="controle-ajuste"><</button>
-                            <input type="text" class="controle-contador-2" value="AGONY OF THORNS">
-                            <button type="button" class="controle-ajuste">></button>
+                            <button type="button" class="controle-ajuste" onclick="prevImg()">&#60;</button>
+                            <div>
+                                <img id="carrosselImg" src="img/s.png" width="100px" onclick="playsp()">
+                                <audio id="audio-spell" src="/sound/spell.mp3"></audio>
+                            </div>
+                            <input type="text" class="controle-contador-2" id="carrosselTxt" value="AGONY OF THORNS" readonly>
+                            <button type="button" class="controle-ajuste" onclick="nextImg()">&#62;</button>
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="Train as The Pure Vessel" class="producao" id="producao">
+                <div id="infoContainer"></div>
+                <input type="submit" value="Train as The Pure Vessel" class="producao" id="producao" onclick="info()">
             </form>
         </section>
     </main>
+    <script src="js/audio.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
